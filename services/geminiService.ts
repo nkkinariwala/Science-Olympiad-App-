@@ -1,6 +1,13 @@
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { QuizQuestion, WeekPlan } from "../types";
 
+// Polyfill for TypeScript build to understand process.env
+declare const process: {
+  env: {
+    API_KEY: string;
+  }
+};
+
 // Initialize Gemini Client
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
